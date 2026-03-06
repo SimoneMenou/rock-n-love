@@ -1,0 +1,35 @@
+body {
+  font-family: "Georgia", serif;
+  background: #0f0f0f;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 60px;
+}
+h1 {
+  color: #ff4d6d;
+}
+#quote {
+  font-size: 1.4em;
+  margin: 40px auto 10px;
+  max-width: 600px;
+  color: #ffb6c1;
+}
+#artist {
+  font-size: 0.95em;
+  color: #888;
+  font-style: italic;
+  margin: 0 auto 30px;
+}
+button {
+  background: #ff4d6d;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  transition: 0.2s;
+}
+button:hover {
+  background: #d63384;
+}
