@@ -1,35 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Georgia", serif;
   background: #0f0f0f;
   color: #f2f2f2;
-  text-align: center;
-  padding: 60px;
+  padding: 0;
+  min-height: 100vh;
 }
+
 h1 {
   color: #ff4d6d;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  padding: 40px 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
-#quote {
-  font-size: 1.4em;
-  margin: 40px auto 10px;
-  max-width: 600px;
-  color: #ffb6c1;
+
+/* ===================== */
+/*  SHARED              */
+/* ===================== */
+
+#feed-js,
+#feed-css {
+  padding: 150px 60px 100px;
+  max-width: 1200px;
 }
-#artist {
-  font-size: 0.95em;
-  color: #888;
+
+.quote-block {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 0;
+}
+
+.quote-text {
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: 1.2;
+  color: #f2f2f2;
+  font-weight: normal;
+}
+
+.quote-text .word {
+  display: inline-block;
+  margin-right: 0.25em;
+}
+
+.quote-artist {
+  font-size: 1rem;
+  color: #ff4d6d;
   font-style: italic;
-  margin: 0 auto 30px;
+  margin-top: 30px;
 }
-button {
-  background: #ff4d6d;
-  border: none;
-  border-radius: 8px;
-  padding: 12px 24px;
-  color: white;
-  font-size: 1em;
-  cursor: pointer;
-  transition: 0.2s;
+
+/* ===================== */
+/*  MODE JS             */
+/* ===================== */
+
+/* JS cache le feed CSS et affiche le sien */
+body:not(.no-js) #feed-css {
+  display: none;
 }
-button:hover {
-  background: #d63384;
+
+body.no-js #feed-js {
+  display: none;
+}
+
+/* JS : mots grisés, allumés par classe .lit */
+body:not(.no-js) .quote-text .word {
+  opacity: 0.15;
+  transition: opacity 0.3s ease;
+}
+
+body:not(.no-js) .quote-text .word.lit {
+  opacity: 1;
+}
+
+body:not(.no-js) .quote-artist {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+body:not(.no-js) .quote-artist.visible {
+  opacity: 1;
+}
+
+/* ===================== */
+/*  MODE NO-JS (CSS)    */
+/* ===================== */
+
+/* Chaque mot s'anime individuellement au scroll */
+body.no-js .quote-text .word {
+  opacity: 0.15;
+  animation: reveal linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 100%;
+}
+
+/* Stagger : chaque mot commence un peu plus tard */
+body.no-js .quote-text .word:nth-child(1)  { animation-range: entry 0% entry 30%; }
+body.no-js .quote-text .word:nth-child(2)  { animation-range: entry 3% entry 33%; }
+body.no-js .quote-text .word:nth-child(3)  { animation-range: entry 6% entry 36%; }
+body.no-js .quote-text .word:nth-child(4)  { animation-range: entry 9% entry 39%; }
+body.no-js .quote-text .word:nth-child(5)  { animation-range: entry 12% entry 42%; }
+body.no-js .quote-text .word:nth-child(6)  { animation-range: entry 15% entry 45%; }
+body.no-js .quote-text .word:nth-child(7)  { animation-range: entry 18% entry 48%; }
+body.no-js .quote-text .word:nth-child(8)  { animation-range: entry 21% entry 51%; }
+body.no-js .quote-text .word:nth-child(9)  { animation-range: entry 24% entry 54%; }
+body.no-js .quote-text .word:nth-child(10) { animation-range: entry 27% entry 57%; }
+body.no-js .quote-text .word:nth-child(11) { animation-range: entry 30% entry 60%; }
+body.no-js .quote-text .word:nth-child(12) { animation-range: entry 33% entry 63%; }
+body.no-js .quote-text .word:nth-child(13) { animation-range: entry 36% entry 66%; }
+body.no-js .quote-text .word:nth-child(14) { animation-range: entry 39% entry 69%; }
+body.no-js .quote-text .word:nth-child(15) { animation-range: entry 42% entry 72%; }
+body.no-js .quote-text .word:nth-child(16) { animation-range: entry 45% entry 75%; }
+body.no-js .quote-text .word:nth-child(17) { animation-range: entry 48% entry 78%; }
+body.no-js .quote-text .word:nth-child(18) { animation-range: entry 51% entry 81%; }
+
+@keyframes reveal {
+  from { opacity: 0.15; }
+  to   { opacity: 1; }
+}
+
+body.no-js .quote-artist {
+  opacity: 0;
+  animation: reveal linear both;
+  animation-timeline: view();
+  animation-range: entry 60% entry 90%;
+}
+
+/* ===================== */
+/*  RESPONSIVE          */
+/* ===================== */
+
+@media (max-width: 600px) {
+  h1 {
+    padding: 20px 30px;
+  }
+  #feed-js,
+  #feed-css {
+    padding: 120px 30px 60px;
+  }
 }

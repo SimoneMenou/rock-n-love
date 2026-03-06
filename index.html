@@ -2,14 +2,76 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rock'n Love - Citations</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="no-js">
+
   <h1>Murmures Rock'n Love</h1>
-  <p id="quote">Clique pour recevoir une phrase...</p>
-  <p id="artist"></p>
-  <button onclick="getQuote()">Nouvelle citation</button>
+
+  <!-- Feed JS (vide, rempli par JS) -->
+  <div id="feed-js"></div>
+
+  <!-- Feed no-js (statique, visible uniquement sans JS) -->
+  <div id="feed-css">
+
+    <div class="quote-block">
+      <p class="quote-text"><span class="word">Je</span><span class="word">suis</span><span class="word">venu</span><span class="word">te</span><span class="word">dire</span><span class="word">que</span><span class="word">je</span><span class="word">m'en</span><span class="word">vais.</span></p>
+      <p class="quote-artist">— Serge Gainsbourg</p>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text"><span class="word">Please</span><span class="word">allow</span><span class="word">me</span><span class="word">to</span><span class="word">introduce</span><span class="word">myself,</span><span class="word">I'm</span><span class="word">a</span><span class="word">man</span><span class="word">of</span><span class="word">wealth</span><span class="word">and</span><span class="word">taste.</span></p>
+      <p class="quote-artist">— The Rolling Stones</p>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text"><span class="word">La</span><span class="word">nuit</span><span class="word">je</span><span class="word">mens,</span><span class="word">je</span><span class="word">prends</span><span class="word">des</span><span class="word">trains</span><span class="word">à</span><span class="word">travers</span><span class="word">la</span><span class="word">plaine.</span></p>
+      <p class="quote-artist">— Alain Bashung</p>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text"><span class="word">There's</span><span class="word">a</span><span class="word">crack</span><span class="word">in</span><span class="word">everything,</span><span class="word">that's</span><span class="word">how</span><span class="word">the</span><span class="word">light</span><span class="word">gets</span><span class="word">in.</span></p>
+      <p class="quote-artist">— Leonard Cohen</p>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text"><span class="word">Every</span><span class="word">breath</span><span class="word">you</span><span class="word">take,</span><span class="word">every</span><span class="word">move</span><span class="word">you</span><span class="word">make,</span><span class="word">I'll</span><span class="word">be</span><span class="word">watching</span><span class="word">you.</span></p>
+      <p class="quote-artist">— The Police</p>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text"><span class="word">I</span><span class="word">can't</span><span class="word">help</span><span class="word">falling</span><span class="word">in</span><span class="word">love</span><span class="word">with</span><span class="word">you.</span></p>
+      <p class="quote-artist">— Elvis Presley</p>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text"><span class="word">Nos</span><span class="word">ombres</span><span class="word">se</span><span class="word">tiennent</span><span class="word">par</span><span class="word">la</span><span class="word">main</span><span class="word">quand</span><span class="word">nos</span><span class="word">coeurs</span><span class="word">n'y</span><span class="word">arrivent</span><span class="word">plus.</span></p>
+      <p class="quote-artist">— inspiré par Jeff Buckley</p>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text"><span class="word">Ton</span><span class="word">silence</span><span class="word">griffe</span><span class="word">mes</span><span class="word">nuits</span><span class="word">plus</span><span class="word">fort</span><span class="word">que</span><span class="word">n'importe</span><span class="word">quel</span><span class="word">orage.</span></p>
+      <p class="quote-artist">— inspiré par Bashung</p>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text"><span class="word">Is</span><span class="word">this</span><span class="word">the</span><span class="word">real</span><span class="word">life?</span><span class="word">Is</span><span class="word">this</span><span class="word">just</span><span class="word">fantasy?</span></p>
+      <p class="quote-artist">— Queen</p>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text"><span class="word">Ton</span><span class="word">amour</span><span class="word">brûle</span><span class="word">comme</span><span class="word">un</span><span class="word">riff</span><span class="word">de</span><span class="word">guitare</span><span class="word">qu'on</span><span class="word">ne</span><span class="word">veut</span><span class="word">jamais</span><span class="word">voir</span><span class="word">s'éteindre.</span></p>
+      <p class="quote-artist">— inspiré par Mick Jagger</p>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text"><span class="word">Aimer,</span><span class="word">c'est</span><span class="word">hurler</span><span class="word">à</span><span class="word">la</span><span class="word">lune</span><span class="word">et</span><span class="word">espérer</span><span class="word">qu'elle</span><span class="word">nous</span><span class="word">réponde</span><span class="word">un</span><span class="word">jour.</span></p>
+      <p class="quote-artist">— inspiré par Leonard Cohen</p>
+    </div>
+
+  </div>
 
   <script src="quote.js"></script>
 </body>
